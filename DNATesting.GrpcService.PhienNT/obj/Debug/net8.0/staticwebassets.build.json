@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "lVqU5j7DnZJR2VMX+VrZjic3cd0kcOmbBDZps54kH2E=",
+  "Source": "DNATesting.GrpcService.PhienNT",
+  "BasePath": "_content/DNATesting.GrpcService.PhienNT",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

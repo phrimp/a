@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35707.178 d17.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DNATesting.Repository.PhienNT", "DNATesting.Repository.PhienNT\DNATesting.Repository.PhienNT.csproj", "{673C1471-56CD-483C-8769-AD0DACD0E3DA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DNATesting.Service.PhienNT", "DNATesting.Service.PhienNT\DNATesting.Service.PhienNT.csproj", "{B077B225-BDFF-4615-964A-4793EAAB361C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DNATesting.GrpcService.PhienNT", "DNATesting.GrpcService.PhienNT\DNATesting.GrpcService.PhienNT.csproj", "{CAFB51C1-8355-468B-A5AA-473EFCA2481B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{673C1471-56CD-483C-8769-AD0DACD0E3DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{673C1471-56CD-483C-8769-AD0DACD0E3DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{673C1471-56CD-483C-8769-AD0DACD0E3DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{673C1471-56CD-483C-8769-AD0DACD0E3DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B077B225-BDFF-4615-964A-4793EAAB361C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B077B225-BDFF-4615-964A-4793EAAB361C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B077B225-BDFF-4615-964A-4793EAAB361C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B077B225-BDFF-4615-964A-4793EAAB361C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CAFB51C1-8355-468B-A5AA-473EFCA2481B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAFB51C1-8355-468B-A5AA-473EFCA2481B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAFB51C1-8355-468B-A5AA-473EFCA2481B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CAFB51C1-8355-468B-A5AA-473EFCA2481B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
