@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DNATestingSystem.gRPCClient.ConsoleApp.PhienNT")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+39c686cea77e77fce9e450362c423bd4fe0253f8")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+91054ef5367cc49b3d85e723b3b96d4a0586b444")]
 [assembly: System.Reflection.AssemblyProductAttribute("DNATestingSystem.gRPCClient.ConsoleApp.PhienNT")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DNATestingSystem.gRPCClient.ConsoleApp.PhienNT")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

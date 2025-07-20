@@ -1,0 +1,2 @@
+obj\Debug\net8.0\Protos/DnaTestsPhien.cs \
+obj\Debug\net8.0\Protos/DnaTestsPhienGrpc.cs: Protos/dnaTestsPhien.proto

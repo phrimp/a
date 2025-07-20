@@ -1,0 +1,15 @@
+[
+  {
+    "Name": "New Profile",
+    "Projects": [
+      {
+        "Path": "DNATesting.GrpcService.PhienNT\\DNATesting.GrpcService.PhienNT.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "DNATestingSystem.gRPCClient.ConsoleApp.PhienNT\\DNATestingSystem.gRPCClient.ConsoleApp.PhienNT.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]

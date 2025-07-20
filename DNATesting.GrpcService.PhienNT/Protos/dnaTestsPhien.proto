@@ -1,0 +1,100 @@
+syntax = "proto3";
+
+option csharp_namespace = "DNATesting.GrpcService.PhienNT.Protos";
+
+service DnaTestsPhienNTGRPC {
+    rpc GetAllAsync(EmptyRequest) returns (DnaTestsPhienNTList);
+    rpc GetByIdAsync(GetByIdRequest) returns (DnaTestsPhienNT);
+    rpc SearchAsync(SearchDnaTestsRequest) returns (DnaTestsPaginationResult);
+    rpc CreateAsync(DnaTestsPhienNT) returns (MutationResult);
+    rpc UpdateAsync(DnaTestsPhienNT) returns (MutationResult);
+    rpc DeleteAsync(DeleteRequest) returns (MutationResult);
+}
+
+service LociPhienNTGRPC {
+    rpc GetAllAsync(EmptyRequest) returns (LociPhienNTList);
+    rpc GetByIdAsync(GetByIdRequest) returns (LociPhienNT);
+    rpc GetByNameAsync(GetByNameRequest) returns (LociPhienNT);
+    rpc SearchAsync(SearchLociRequest) returns (LociPaginationResult);
+    rpc GetCodisLociAsync(EmptyRequest) returns (LociPhienNTList);
+    rpc CreateAsync(LociPhienNT) returns (MutationResult);
+    rpc UpdateAsync(LociPhienNT) returns (MutationResult);
+    rpc DeleteAsync(DeleteRequest) returns (MutationResult);
+}
+
+message EmptyRequest {}
+
+message GetByIdRequest {
+    int32 id = 1;
+}
+
+message GetByNameRequest {
+    string name = 1;
+}
+
+message DeleteRequest {
+    int32 id = 1;
+}
+
+message MutationResult {
+    int32 result = 1;
+}
+
+// DNA Tests Messages
+message DnaTestsPhienNTList {
+    repeated DnaTestsPhienNT tests = 1;
+}
+
+message DnaTestsPhienNT {
+    int32 phienNtid = 1;
+    string testType = 2;
+    string conclusion = 3;
+    double probabilityOfRelationship = 4;
+    double relationshipIndex = 5;
+    bool isCompleted = 6;
+    string createdAt = 7;
+}
+
+message SearchDnaTestsRequest {
+    string testType = 1;
+    bool isCompleted = 2;
+    int32 page = 3;
+    int32 pageSize = 4;
+}
+
+message DnaTestsPaginationResult {
+    int32 totalItems = 1;
+    int32 totalPages = 2;
+    int32 currentPage = 3;
+    int32 pageSize = 4;
+    repeated DnaTestsPhienNT items = 5;
+}
+
+// Loci Messages
+message LociPhienNTList {
+    repeated LociPhienNT loci = 1;
+}
+
+message LociPhienNT {
+    int32 phienNtid = 1;
+    string name = 2;
+    bool isCodis = 3;
+    string description = 4;
+    double mutationRate = 5;
+    string createdAt = 6;
+}
+
+message SearchLociRequest {
+    string name = 1;
+    bool isCodis = 2;
+    int32 page = 3;
+    int32 pageSize = 4;
+}
+
+message LociPaginationResult {
+    int32 totalItems = 1;
+    int32 totalPages = 2;
+    int32 currentPage = 3;
+    int32 pageSize = 4;
+    repeated LociPhienNT items = 5;
+}
