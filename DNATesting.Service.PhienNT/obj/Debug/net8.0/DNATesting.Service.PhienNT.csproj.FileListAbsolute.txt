@@ -29,3 +29,35 @@ I:\New folder\SU25_PRN232_SE1730_ASM2_SE182972_PhienNT\DNATesting.Service.PhienN
 I:\New folder\SU25_PRN232_SE1730_ASM2_SE182972_PhienNT\DNATesting.Service.PhienNT\obj\Debug\net8.0\refint\DNATesting.Service.PhienNT.dll
 I:\New folder\SU25_PRN232_SE1730_ASM2_SE182972_PhienNT\DNATesting.Service.PhienNT\obj\Debug\net8.0\DNATesting.Service.PhienNT.pdb
 I:\New folder\SU25_PRN232_SE1730_ASM2_SE182972_PhienNT\DNATesting.Service.PhienNT\obj\Debug\net8.0\ref\DNATesting.Service.PhienNT.dll
+E:\Work\PRN232_ASM2\DNATesting.Service.PhienNT\bin\Debug\net8.0\DNATesting.Service.PhienNT.deps.json
+E:\Work\PRN232_ASM2\DNATesting.Service.PhienNT\bin\Debug\net8.0\DNATesting.Service.PhienNT.dll
+E:\Work\PRN232_ASM2\DNATesting.Service.PhienNT\bin\Debug\net8.0\DNATesting.Service.PhienNT.pdb
+E:\Work\PRN232_ASM2\DNATesting.Service.PhienNT\bin\Debug\net8.0\DNATesting.Repository.PhienNT.dll
+E:\Work\PRN232_ASM2\DNATesting.Service.PhienNT\bin\Debug\net8.0\DNATesting.Repository.PhienNT.pdb
+E:\Work\PRN232_ASM2\DNATesting.Service.PhienNT\obj\Debug\net8.0\DNATesting.Service.PhienNT.csproj.AssemblyReference.cache
+E:\Work\PRN232_ASM2\DNATesting.Service.PhienNT\obj\Debug\net8.0\DNATesting.Service.PhienNT.GeneratedMSBuildEditorConfig.editorconfig
+E:\Work\PRN232_ASM2\DNATesting.Service.PhienNT\obj\Debug\net8.0\DNATesting.Service.PhienNT.AssemblyInfoInputs.cache
+E:\Work\PRN232_ASM2\DNATesting.Service.PhienNT\obj\Debug\net8.0\DNATesting.Service.PhienNT.AssemblyInfo.cs
+E:\Work\PRN232_ASM2\DNATesting.Service.PhienNT\obj\Debug\net8.0\DNATesting.Service.PhienNT.csproj.CoreCompileInputs.cache
+E:\Work\PRN232_ASM2\DNATesting.Service.PhienNT\obj\Debug\net8.0\DNATesting.Service.PhienNT.sourcelink.json
+E:\Work\PRN232_ASM2\DNATesting.Service.PhienNT\obj\Debug\net8.0\DNATesti.5E70AF15.Up2Date
+E:\Work\PRN232_ASM2\DNATesting.Service.PhienNT\obj\Debug\net8.0\DNATesting.Service.PhienNT.dll
+E:\Work\PRN232_ASM2\DNATesting.Service.PhienNT\obj\Debug\net8.0\refint\DNATesting.Service.PhienNT.dll
+E:\Work\PRN232_ASM2\DNATesting.Service.PhienNT\obj\Debug\net8.0\DNATesting.Service.PhienNT.pdb
+E:\Work\PRN232_ASM2\DNATesting.Service.PhienNT\obj\Debug\net8.0\ref\DNATesting.Service.PhienNT.dll
+E:\Work\SU25_PRN232_SE1730_ASM3_SE182962_PhienNT\DNATesting.Service.PhienNT\bin\Debug\net8.0\DNATesting.Service.PhienNT.deps.json
+E:\Work\SU25_PRN232_SE1730_ASM3_SE182962_PhienNT\DNATesting.Service.PhienNT\bin\Debug\net8.0\DNATesting.Service.PhienNT.dll
+E:\Work\SU25_PRN232_SE1730_ASM3_SE182962_PhienNT\DNATesting.Service.PhienNT\bin\Debug\net8.0\DNATesting.Service.PhienNT.pdb
+E:\Work\SU25_PRN232_SE1730_ASM3_SE182962_PhienNT\DNATesting.Service.PhienNT\bin\Debug\net8.0\DNATesting.Repository.PhienNT.dll
+E:\Work\SU25_PRN232_SE1730_ASM3_SE182962_PhienNT\DNATesting.Service.PhienNT\bin\Debug\net8.0\DNATesting.Repository.PhienNT.pdb
+E:\Work\SU25_PRN232_SE1730_ASM3_SE182962_PhienNT\DNATesting.Service.PhienNT\obj\Debug\net8.0\DNATesting.Service.PhienNT.csproj.AssemblyReference.cache
+E:\Work\SU25_PRN232_SE1730_ASM3_SE182962_PhienNT\DNATesting.Service.PhienNT\obj\Debug\net8.0\DNATesting.Service.PhienNT.GeneratedMSBuildEditorConfig.editorconfig
+E:\Work\SU25_PRN232_SE1730_ASM3_SE182962_PhienNT\DNATesting.Service.PhienNT\obj\Debug\net8.0\DNATesting.Service.PhienNT.AssemblyInfoInputs.cache
+E:\Work\SU25_PRN232_SE1730_ASM3_SE182962_PhienNT\DNATesting.Service.PhienNT\obj\Debug\net8.0\DNATesting.Service.PhienNT.AssemblyInfo.cs
+E:\Work\SU25_PRN232_SE1730_ASM3_SE182962_PhienNT\DNATesting.Service.PhienNT\obj\Debug\net8.0\DNATesting.Service.PhienNT.csproj.CoreCompileInputs.cache
+E:\Work\SU25_PRN232_SE1730_ASM3_SE182962_PhienNT\DNATesting.Service.PhienNT\obj\Debug\net8.0\DNATesting.Service.PhienNT.sourcelink.json
+E:\Work\SU25_PRN232_SE1730_ASM3_SE182962_PhienNT\DNATesting.Service.PhienNT\obj\Debug\net8.0\DNATesti.5E70AF15.Up2Date
+E:\Work\SU25_PRN232_SE1730_ASM3_SE182962_PhienNT\DNATesting.Service.PhienNT\obj\Debug\net8.0\DNATesting.Service.PhienNT.dll
+E:\Work\SU25_PRN232_SE1730_ASM3_SE182962_PhienNT\DNATesting.Service.PhienNT\obj\Debug\net8.0\refint\DNATesting.Service.PhienNT.dll
+E:\Work\SU25_PRN232_SE1730_ASM3_SE182962_PhienNT\DNATesting.Service.PhienNT\obj\Debug\net8.0\DNATesting.Service.PhienNT.pdb
+E:\Work\SU25_PRN232_SE1730_ASM3_SE182962_PhienNT\DNATesting.Service.PhienNT\obj\Debug\net8.0\ref\DNATesting.Service.PhienNT.dll

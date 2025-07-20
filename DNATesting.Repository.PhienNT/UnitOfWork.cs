@@ -28,6 +28,8 @@ namespace DNATesting.Repository.PhienNT
         private LociPhienNtRepository _lociPhienNtRepository;
         private AlleleResultsPhienNtRepository _alleleResultsPhienNtRepository;
 
+        public UnitOfWork() => _context ??= new Se18Prn232Se1730G3DnatestingSystemContext();
+
         public SystemUserAccountRepository UserAccountRepository
         {
             get { return _userAccountRepository ??= new SystemUserAccountRepository(_context); }

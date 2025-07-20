@@ -1,22 +1,22 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "I:\\New folder\\SU25_PRN232_SE1730_ASM3_SE182962_PhienNT\\",
+  "WorkspaceRootPath": "E:\\Work\\SU25_PRN232_SE1730_ASM3_SE182962_PhienNT\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{CAFB51C1-8355-468B-A5AA-473EFCA2481B}|DNATesting.GrpcService.PhienNT\\DNATesting.GrpcService.PhienNT.csproj|i:\\new folder\\su25_prn232_se1730_asm3_se182962_phiennt\\dnatesting.grpcservice.phiennt\\services\\greeterservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CAFB51C1-8355-468B-A5AA-473EFCA2481B}|DNATesting.GrpcService.PhienNT\\DNATesting.GrpcService.PhienNT.csproj|solutionrelative:dnatesting.grpcservice.phiennt\\services\\greeterservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CAFB51C1-8355-468B-A5AA-473EFCA2481B}|DNATesting.GrpcService.PhienNT\\DNATesting.GrpcService.PhienNT.csproj|i:\\new folder\\su25_prn232_se1730_asm3_se182962_phiennt\\dnatesting.grpcservice.phiennt\\protos\\greet.proto||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{CAFB51C1-8355-468B-A5AA-473EFCA2481B}|DNATesting.GrpcService.PhienNT\\DNATesting.GrpcService.PhienNT.csproj|solutionrelative:dnatesting.grpcservice.phiennt\\protos\\greet.proto||{3B902123-F8A7-4915-9F01-361F908088D0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CAFB51C1-8355-468B-A5AA-473EFCA2481B}|DNATesting.GrpcService.PhienNT\\DNATesting.GrpcService.PhienNT.csproj|i:\\new folder\\su25_prn232_se1730_asm3_se182962_phiennt\\dnatesting.grpcservice.phiennt\\protos\\dnatestphien.proto||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "AbsoluteMoniker": "D:0:0:{CAFB51C1-8355-468B-A5AA-473EFCA2481B}|DNATesting.GrpcService.PhienNT\\DNATesting.GrpcService.PhienNT.csproj|e:\\work\\su25_prn232_se1730_asm3_se182962_phiennt\\dnatesting.grpcservice.phiennt\\protos\\dnatestphien.proto||{3B902123-F8A7-4915-9F01-361F908088D0}",
       "RelativeMoniker": "D:0:0:{CAFB51C1-8355-468B-A5AA-473EFCA2481B}|DNATesting.GrpcService.PhienNT\\DNATesting.GrpcService.PhienNT.csproj|solutionrelative:dnatesting.grpcservice.phiennt\\protos\\dnatestphien.proto||{3B902123-F8A7-4915-9F01-361F908088D0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{673C1471-56CD-483C-8769-AD0DACD0E3DA}|DNATesting.Repository.PhienNT\\DNATesting.Repository.PhienNT.csproj|i:\\new folder\\su25_prn232_se1730_asm3_se182962_phiennt\\dnatesting.repository.phiennt\\alleleresultsphienntrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{673C1471-56CD-483C-8769-AD0DACD0E3DA}|DNATesting.Repository.PhienNT\\DNATesting.Repository.PhienNT.csproj|solutionrelative:dnatesting.repository.phiennt\\alleleresultsphienntrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9BD95F9E-35F0-44DF-981E-8A995F37C429}|DNATestingSystem.gRPCClient.ConsoleApp.PhienNT\\DNATestingSystem.gRPCClient.ConsoleApp.PhienNT.csproj|e:\\work\\su25_prn232_se1730_asm3_se182962_phiennt\\dnatestingsystem.grpcclient.consoleapp.phiennt\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9BD95F9E-35F0-44DF-981E-8A995F37C429}|DNATestingSystem.gRPCClient.ConsoleApp.PhienNT\\DNATestingSystem.gRPCClient.ConsoleApp.PhienNT.csproj|solutionrelative:dnatestingsystem.grpcclient.consoleapp.phiennt\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CAFB51C1-8355-468B-A5AA-473EFCA2481B}|DNATesting.GrpcService.PhienNT\\DNATesting.GrpcService.PhienNT.csproj|e:\\work\\su25_prn232_se1730_asm3_se182962_phiennt\\dnatesting.grpcservice.phiennt\\services\\greeterservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CAFB51C1-8355-468B-A5AA-473EFCA2481B}|DNATesting.GrpcService.PhienNT\\DNATesting.GrpcService.PhienNT.csproj|solutionrelative:dnatesting.grpcservice.phiennt\\services\\greeterservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CAFB51C1-8355-468B-A5AA-473EFCA2481B}|DNATesting.GrpcService.PhienNT\\DNATesting.GrpcService.PhienNT.csproj|e:\\work\\su25_prn232_se1730_asm3_se182962_phiennt\\dnatesting.grpcservice.phiennt\\protos\\greet.proto||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{CAFB51C1-8355-468B-A5AA-473EFCA2481B}|DNATesting.GrpcService.PhienNT\\DNATesting.GrpcService.PhienNT.csproj|solutionrelative:dnatesting.grpcservice.phiennt\\protos\\greet.proto||{3B902123-F8A7-4915-9F01-361F908088D0}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,62 +26,60 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "GreeterService.cs",
-              "DocumentMoniker": "I:\\New folder\\SU25_PRN232_SE1730_ASM3_SE182962_PhienNT\\DNATesting.GrpcService.PhienNT\\Services\\GreeterService.cs",
-              "RelativeDocumentMoniker": "DNATesting.GrpcService.PhienNT\\Services\\GreeterService.cs",
-              "ToolTip": "I:\\New folder\\SU25_PRN232_SE1730_ASM3_SE182962_PhienNT\\DNATesting.GrpcService.PhienNT\\Services\\GreeterService.cs",
-              "RelativeToolTip": "DNATesting.GrpcService.PhienNT\\Services\\GreeterService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-23T04:32:54.946Z",
-              "EditorCaption": ""
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "greet.proto",
-              "DocumentMoniker": "I:\\New folder\\SU25_PRN232_SE1730_ASM3_SE182962_PhienNT\\DNATesting.GrpcService.PhienNT\\Protos\\greet.proto",
-              "RelativeDocumentMoniker": "DNATesting.GrpcService.PhienNT\\Protos\\greet.proto",
-              "ToolTip": "I:\\New folder\\SU25_PRN232_SE1730_ASM3_SE182962_PhienNT\\DNATesting.GrpcService.PhienNT\\Protos\\greet.proto",
-              "RelativeToolTip": "DNATesting.GrpcService.PhienNT\\Protos\\greet.proto",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003853|",
-              "WhenOpened": "2025-06-23T04:20:21.112Z",
+              "Title": "Program.cs",
+              "DocumentMoniker": "E:\\Work\\SU25_PRN232_SE1730_ASM3_SE182962_PhienNT\\DNATestingSystem.gRPCClient.ConsoleApp.PhienNT\\Program.cs",
+              "RelativeDocumentMoniker": "DNATestingSystem.gRPCClient.ConsoleApp.PhienNT\\Program.cs",
+              "ToolTip": "E:\\Work\\SU25_PRN232_SE1730_ASM3_SE182962_PhienNT\\DNATestingSystem.gRPCClient.ConsoleApp.PhienNT\\Program.cs",
+              "RelativeToolTip": "DNATestingSystem.gRPCClient.ConsoleApp.PhienNT\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-20T20:15:21.035Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "dnatestPhien.proto",
-              "DocumentMoniker": "I:\\New folder\\SU25_PRN232_SE1730_ASM3_SE182962_PhienNT\\DNATesting.GrpcService.PhienNT\\Protos\\dnatestPhien.proto",
-              "RelativeDocumentMoniker": "DNATesting.GrpcService.PhienNT\\Protos\\dnatestPhien.proto",
-              "ToolTip": "I:\\New folder\\SU25_PRN232_SE1730_ASM3_SE182962_PhienNT\\DNATesting.GrpcService.PhienNT\\Protos\\dnatestPhien.proto",
-              "RelativeToolTip": "DNATesting.GrpcService.PhienNT\\Protos\\dnatestPhien.proto",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003853|",
-              "WhenOpened": "2025-06-23T03:55:02.313Z",
-              "EditorCaption": ""
+              "Title": "GreeterService.cs",
+              "DocumentMoniker": "E:\\Work\\SU25_PRN232_SE1730_ASM3_SE182962_PhienNT\\DNATesting.GrpcService.PhienNT\\Services\\GreeterService.cs",
+              "RelativeDocumentMoniker": "DNATesting.GrpcService.PhienNT\\Services\\GreeterService.cs",
+              "ToolTip": "E:\\Work\\SU25_PRN232_SE1730_ASM3_SE182962_PhienNT\\DNATesting.GrpcService.PhienNT\\Services\\GreeterService.cs",
+              "RelativeToolTip": "DNATesting.GrpcService.PhienNT\\Services\\GreeterService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-23T04:32:54.946Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "AlleleResultsPhienNTRepository.cs",
-              "DocumentMoniker": "I:\\New folder\\SU25_PRN232_SE1730_ASM3_SE182962_PhienNT\\DNATesting.Repository.PhienNT\\AlleleResultsPhienNTRepository.cs",
-              "RelativeDocumentMoniker": "DNATesting.Repository.PhienNT\\AlleleResultsPhienNTRepository.cs",
-              "ToolTip": "I:\\New folder\\SU25_PRN232_SE1730_ASM3_SE182962_PhienNT\\DNATesting.Repository.PhienNT\\AlleleResultsPhienNTRepository.cs",
-              "RelativeToolTip": "DNATesting.Repository.PhienNT\\AlleleResultsPhienNTRepository.cs",
+              "Title": "greet.proto",
+              "DocumentMoniker": "E:\\Work\\SU25_PRN232_SE1730_ASM3_SE182962_PhienNT\\DNATesting.GrpcService.PhienNT\\Protos\\greet.proto",
+              "RelativeDocumentMoniker": "DNATesting.GrpcService.PhienNT\\Protos\\greet.proto",
+              "ToolTip": "E:\\Work\\SU25_PRN232_SE1730_ASM3_SE182962_PhienNT\\DNATesting.GrpcService.PhienNT\\Protos\\greet.proto",
+              "RelativeToolTip": "DNATesting.GrpcService.PhienNT\\Protos\\greet.proto",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-23T03:34:15.374Z",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003853|",
+              "WhenOpened": "2025-06-23T04:20:21.112Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "dnatestPhien.proto",
+              "DocumentMoniker": "E:\\Work\\SU25_PRN232_SE1730_ASM3_SE182962_PhienNT\\DNATesting.GrpcService.PhienNT\\Protos\\dnatestPhien.proto",
+              "RelativeDocumentMoniker": "DNATesting.GrpcService.PhienNT\\Protos\\dnatestPhien.proto",
+              "ToolTip": "E:\\Work\\SU25_PRN232_SE1730_ASM3_SE182962_PhienNT\\DNATesting.GrpcService.PhienNT\\Protos\\dnatestPhien.proto",
+              "RelativeToolTip": "DNATesting.GrpcService.PhienNT\\Protos\\dnatestPhien.proto",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003853|",
+              "WhenOpened": "2025-06-23T03:55:02.313Z",
               "EditorCaption": ""
             }
           ]
