@@ -9,300 +9,543 @@ Console.WriteLine("=== gRPC Client for DNA Testing PhienNT ===");
 Console.WriteLine("==============================================");
 
 // Create a gRPC channel
-using var channel = GrpcChannel.ForAddress("https://localhost:7265"); // Adjust port as needed
+using var channel = GrpcChannel.ForAddress("https://localhost:7265");
+var dnaTestsClient = new DnaTestsPhienNTGRPC.DnaTestsPhienNTGRPCClient(channel);
+var lociClient = new LociPhienNTGRPC.LociPhienNTGRPCClient(channel);
 
-// Store created IDs for testing
-int createdTestId = 0;
-int createdLocusId = 0;
-
-try
+while (true)
 {
-    // Test basic greeting service first
-    Console.WriteLine("\n--- Testing Greeting Service ---");
-    var greeterClient = new Greeter.GreeterClient(channel);
-    var greetResponse = await greeterClient.SayHelloAsync(new HelloRequest { Name = "PhienNT Console Client" });
-    Console.WriteLine($"Greeting Response: {greetResponse.Message}");
+    ShowMainMenu();
+    var choice = Console.ReadLine();
 
-    // ============================================
-    // DNA TESTS SERVICE TESTING
-    // ============================================
-    Console.WriteLine("\n=== TESTING DNA TESTS SERVICE ===");
-    var dnaTestsClient = new DnaTestsPhienNTGRPC.DnaTestsPhienNTGRPCClient(channel);
-
-    // Test 1: GetAllAsync for DNA Tests
-    Console.WriteLine("\n1. Getting all DNA tests...");
-    var getAllTestsResponse = await dnaTestsClient.GetAllAsyncAsync(new EmptyRequest());
-    Console.WriteLine($"✅ Found {getAllTestsResponse.Tests.Count} DNA tests");
-
-    if (getAllTestsResponse.Tests.Count > 0)
+    try
     {
-        Console.WriteLine("   Sample data:");
-        foreach (var test in getAllTestsResponse.Tests.Take(3))
+        switch (choice)
         {
-            Console.WriteLine($"   - Test ID: {test.PhienNtid}, Type: {test.TestType}, Completed: {test.IsCompleted}");
+            case "1":
+                await HandleDnaTestsMenu();
+                break;
+            case "2":
+                await HandleLociMenu();
+                break;
+            case "3":
+                Console.WriteLine("Goodbye!");
+                return;
+            default:
+                Console.WriteLine("❌ Invalid option. Please try again.");
+                break;
         }
     }
-
-    // Test 2: Create DNA Test
-    Console.WriteLine("\n2. Creating new DNA test...");
-    var newTest = new DnaTestsPhienNT
+    catch (Exception ex)
     {
-        PhienNtid = 0, // Will be auto-generated
-        TestType = "Paternity Test - PhienNT Client",
-        Conclusion = "Test pending - Created via gRPC console client",
-        ProbabilityOfRelationship = 0.0,
-        RelationshipIndex = 0.0,
-        IsCompleted = false,
+        Console.WriteLine($"❌ Error: {ex.Message}");
+    }
+
+    Console.WriteLine("\nPress any key to continue...");
+    Console.ReadKey();
+}
+
+void ShowMainMenu()
+{
+    Console.Clear();
+    Console.WriteLine("=== Main Menu ===");
+    Console.WriteLine("1. DNA Tests Management");
+    Console.WriteLine("2. Loci Management");
+    Console.WriteLine("3. Exit");
+    Console.Write("Choose an option: ");
+}
+
+async Task HandleDnaTestsMenu()
+{
+    while (true)
+    {
+        Console.Clear();
+        Console.WriteLine("=== DNA Tests Management ===");
+        Console.WriteLine("1. View All Tests");
+        Console.WriteLine("2. Get Test by ID");
+        Console.WriteLine("3. Search Tests");
+        Console.WriteLine("4. Create New Test");
+        Console.WriteLine("5. Update Test");
+        Console.WriteLine("6. Delete Test");
+        Console.WriteLine("7. Back to Main Menu");
+        Console.Write("Choose an option: ");
+
+        var choice = Console.ReadLine();
+
+        switch (choice)
+        {
+            case "1":
+                await ViewAllDnaTests();
+                break;
+            case "2":
+                await GetDnaTestById();
+                break;
+            case "3":
+                await SearchDnaTests();
+                break;
+            case "4":
+                await CreateDnaTest();
+                break;
+            case "5":
+                await UpdateDnaTest();
+                break;
+            case "6":
+                await DeleteDnaTest();
+                break;
+            case "7":
+                return;
+            default:
+                Console.WriteLine("❌ Invalid option.");
+                break;
+        }
+
+        if (choice != "7")
+        {
+            Console.WriteLine("\nPress any key to continue...");
+            Console.ReadKey();
+        }
+    }
+}
+
+async Task HandleLociMenu()
+{
+    while (true)
+    {
+        Console.Clear();
+        Console.WriteLine("=== Loci Management ===");
+        Console.WriteLine("1. View All Loci");
+        Console.WriteLine("2. View CODIS Loci Only");
+        Console.WriteLine("3. Get Locus by ID");
+        Console.WriteLine("4. Get Locus by Name");
+        Console.WriteLine("5. Search Loci");
+        Console.WriteLine("6. Create New Locus");
+        Console.WriteLine("7. Update Locus");
+        Console.WriteLine("8. Delete Locus");
+        Console.WriteLine("9. Back to Main Menu");
+        Console.Write("Choose an option: ");
+
+        var choice = Console.ReadLine();
+
+        switch (choice)
+        {
+            case "1":
+                await ViewAllLoci();
+                break;
+            case "2":
+                await ViewCodisLoci();
+                break;
+            case "3":
+                await GetLocusById();
+                break;
+            case "4":
+                await GetLocusByName();
+                break;
+            case "5":
+                await SearchLoci();
+                break;
+            case "6":
+                await CreateLocus();
+                break;
+            case "7":
+                await UpdateLocus();
+                break;
+            case "8":
+                await DeleteLocus();
+                break;
+            case "9":
+                return;
+            default:
+                Console.WriteLine("❌ Invalid option.");
+                break;
+        }
+
+        if (choice != "9")
+        {
+            Console.WriteLine("\nPress any key to continue...");
+            Console.ReadKey();
+        }
+    }
+}
+
+// DNA Tests Methods
+async Task ViewAllDnaTests()
+{
+    Console.WriteLine("\n--- All DNA Tests ---");
+    var response = await dnaTestsClient.GetAllAsyncAsync(new EmptyRequest());
+
+    if (response.Tests.Count == 0)
+    {
+        Console.WriteLine("No tests found.");
+        return;
+    }
+
+    foreach (var test in response.Tests)
+    {
+        Console.WriteLine($"ID: {test.PhienNtid} | Type: {test.TestType} | Completed: {test.IsCompleted}");
+        Console.WriteLine($"  Conclusion: {test.Conclusion}");
+        Console.WriteLine($"  Probability: {test.ProbabilityOfRelationship}% | Index: {test.RelationshipIndex}");
+        Console.WriteLine();
+    }
+}
+
+async Task GetDnaTestById()
+{
+    Console.Write("Enter Test ID: ");
+    if (int.TryParse(Console.ReadLine(), out int id))
+    {
+        var response = await dnaTestsClient.GetByIdAsyncAsync(new GetByIdRequest { Id = id });
+        Console.WriteLine($"\n✅ Test Found:");
+        Console.WriteLine($"ID: {response.PhienNtid}");
+        Console.WriteLine($"Type: {response.TestType}");
+        Console.WriteLine($"Conclusion: {response.Conclusion}");
+        Console.WriteLine($"Probability: {response.ProbabilityOfRelationship}%");
+        Console.WriteLine($"Index: {response.RelationshipIndex}");
+        Console.WriteLine($"Completed: {response.IsCompleted}");
+    }
+    else
+    {
+        Console.WriteLine("❌ Invalid ID format.");
+    }
+}
+
+async Task SearchDnaTests()
+{
+    Console.Write("Enter Test Type (or press Enter to skip): ");
+    var testType = Console.ReadLine();
+
+    Console.Write("Show only completed tests? (y/n): ");
+    var completedInput = Console.ReadLine();
+    bool isCompleted = completedInput?.ToLower() == "y";
+
+    Console.Write("Page number (default 1): ");
+    int page = int.TryParse(Console.ReadLine(), out page) ? page : 1;
+
+    Console.Write("Page size (default 10): ");
+    int pageSize = int.TryParse(Console.ReadLine(), out pageSize) ? pageSize : 10;
+
+    var request = new SearchDnaTestsRequest
+    {
+        TestType = testType ?? "",
+        IsCompleted = isCompleted,
+        Page = page,
+        PageSize = pageSize
+    };
+
+    var response = await dnaTestsClient.SearchAsyncAsync(request);
+
+    Console.WriteLine($"\n--- Search Results ---");
+    Console.WriteLine($"Total: {response.TotalItems} | Pages: {response.TotalPages} | Current: {response.CurrentPage}");
+
+    foreach (var test in response.Items)
+    {
+        Console.WriteLine($"ID: {test.PhienNtid} | Type: {test.TestType} | Completed: {test.IsCompleted}");
+    }
+}
+
+async Task CreateDnaTest()
+{
+    Console.WriteLine("\n--- Create New DNA Test ---");
+    Console.Write("Test Type: ");
+    var testType = Console.ReadLine();
+
+    Console.Write("Conclusion: ");
+    var conclusion = Console.ReadLine();
+
+    Console.Write("Probability of Relationship (0-100): ");
+    double.TryParse(Console.ReadLine(), out double probability);
+
+    Console.Write("Relationship Index: ");
+    double.TryParse(Console.ReadLine(), out double index);
+
+    Console.Write("Is Completed? (y/n): ");
+    bool isCompleted = Console.ReadLine()?.ToLower() == "y";
+
+    var test = new DnaTestsPhienNT
+    {
+        TestType = testType,
+        Conclusion = conclusion,
+        ProbabilityOfRelationship = probability,
+        RelationshipIndex = index,
+        IsCompleted = isCompleted,
         CreatedAt = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ss.fffZ")
     };
 
-    var createTestResponse = await dnaTestsClient.CreateAsyncAsync(newTest);
-    Console.WriteLine($"✅ Created DNA test with result: {createTestResponse.Result}");
-    createdTestId = createTestResponse.Result;
+    var response = await dnaTestsClient.CreateAsyncAsync(test);
+    Console.WriteLine($"✅ Test created with ID: {response.Result}");
+}
 
-    // Test 3: GetByIdAsync
-    if (createdTestId > 0)
+async Task UpdateDnaTest()
+{
+    Console.Write("Enter Test ID to update: ");
+    if (!int.TryParse(Console.ReadLine(), out int id))
     {
-        Console.WriteLine("\n3. Getting DNA test by ID...");
-        var getTestByIdResponse = await dnaTestsClient.GetByIdAsyncAsync(new GetByIdRequest { Id = createdTestId });
-        Console.WriteLine($"✅ Retrieved test: ID={getTestByIdResponse.PhienNtid}, Type={getTestByIdResponse.TestType}");
-    }
-    else if (getAllTestsResponse.Tests.Count > 0)
-    {
-        Console.WriteLine("\n3. Getting DNA test by ID (using existing)...");
-        var firstTestId = getAllTestsResponse.Tests[0].PhienNtid;
-        var getTestByIdResponse = await dnaTestsClient.GetByIdAsyncAsync(new GetByIdRequest { Id = firstTestId });
-        Console.WriteLine($"✅ Retrieved test: ID={getTestByIdResponse.PhienNtid}, Type={getTestByIdResponse.TestType}");
+        Console.WriteLine("❌ Invalid ID format.");
+        return;
     }
 
-    // Test 4: Search DNA Tests
-    Console.WriteLine("\n4. Searching DNA tests...");
-    var searchTestsRequest = new SearchDnaTestsRequest
+    // First get the existing test
+    var existing = await dnaTestsClient.GetByIdAsyncAsync(new GetByIdRequest { Id = id });
+
+    Console.WriteLine("\n--- Update DNA Test ---");
+    Console.WriteLine("Press Enter to keep current value, or type new value:");
+
+    Console.Write($"Test Type [{existing.TestType}]: ");
+    var testType = Console.ReadLine();
+    if (string.IsNullOrEmpty(testType)) testType = existing.TestType;
+
+    Console.Write($"Conclusion [{existing.Conclusion}]: ");
+    var conclusion = Console.ReadLine();
+    if (string.IsNullOrEmpty(conclusion)) conclusion = existing.Conclusion;
+
+    Console.Write($"Probability [{existing.ProbabilityOfRelationship}]: ");
+    var probInput = Console.ReadLine();
+    double probability = string.IsNullOrEmpty(probInput) ? existing.ProbabilityOfRelationship : double.Parse(probInput);
+
+    Console.Write($"Index [{existing.RelationshipIndex}]: ");
+    var indexInput = Console.ReadLine();
+    double index = string.IsNullOrEmpty(indexInput) ? existing.RelationshipIndex : double.Parse(indexInput);
+
+    Console.Write($"Completed [{existing.IsCompleted}] (y/n): ");
+    var completedInput = Console.ReadLine();
+    bool isCompleted = string.IsNullOrEmpty(completedInput) ? existing.IsCompleted : completedInput.ToLower() == "y";
+
+    var test = new DnaTestsPhienNT
     {
-        TestType = "Paternity",
-        IsCompleted = false,
-        Page = 1,
-        PageSize = 10
+        PhienNtid = id,
+        TestType = testType,
+        Conclusion = conclusion,
+        ProbabilityOfRelationship = probability,
+        RelationshipIndex = index,
+        IsCompleted = isCompleted,
+        CreatedAt = existing.CreatedAt
     };
 
-    var searchTestsResponse = await dnaTestsClient.SearchAsyncAsync(searchTestsRequest);
-    Console.WriteLine($"✅ Search found {searchTestsResponse.TotalItems} DNA tests matching criteria");
-    Console.WriteLine($"   Total Pages: {searchTestsResponse.TotalPages}, Current Page: {searchTestsResponse.CurrentPage}");
+    var response = await dnaTestsClient.UpdateAsyncAsync(test);
+    Console.WriteLine($"✅ Test updated. Result: {response.Result}");
+}
 
-    // Test 5: Update DNA Test
-    if (createdTestId > 0)
+async Task DeleteDnaTest()
+{
+    Console.Write("Enter Test ID to delete: ");
+    if (int.TryParse(Console.ReadLine(), out int id))
     {
-        Console.WriteLine("\n5. Updating DNA test...");
-        var updateTest = new DnaTestsPhienNT
+        Console.Write($"Are you sure you want to delete test {id}? (y/n): ");
+        if (Console.ReadLine()?.ToLower() == "y")
         {
-            PhienNtid = createdTestId,
-            TestType = "Paternity Test - Updated via PhienNT Client",
-            Conclusion = "Test completed - Updated via gRPC console client",
-            ProbabilityOfRelationship = 99.99,
-            RelationshipIndex = 1500.75,
-            IsCompleted = true,
-            CreatedAt = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ss.fffZ")
-        };
-
-        var updateTestResponse = await dnaTestsClient.UpdateAsyncAsync(updateTest);
-        Console.WriteLine($"✅ Updated DNA test with result: {updateTestResponse.Result}");
-    }
-
-    // ============================================
-    // LOCI SERVICE TESTING
-    // ============================================
-    Console.WriteLine("\n=== TESTING LOCI SERVICE ===");
-    var lociClient = new LociPhienNTGRPC.LociPhienNTGRPCClient(channel);
-
-    // Test 1: GetAllAsync for Loci
-    Console.WriteLine("\n1. Getting all loci...");
-    var getAllLociResponse = await lociClient.GetAllAsyncAsync(new EmptyRequest());
-    Console.WriteLine($"✅ Found {getAllLociResponse.Loci.Count} loci");
-
-    if (getAllLociResponse.Loci.Count > 0)
-    {
-        Console.WriteLine("   Sample data:");
-        foreach (var locus in getAllLociResponse.Loci.Take(3))
-        {
-            Console.WriteLine($"   - Locus ID: {locus.PhienNtid}, Name: {locus.Name}, CODIS: {locus.IsCodis}");
+            var response = await dnaTestsClient.DeleteAsyncAsync(new DeleteRequest { Id = id });
+            Console.WriteLine($"✅ Test deleted. Result: {response.Result}");
         }
-    }
-
-    // Test 2: GetCodisLociAsync
-    Console.WriteLine("\n2. Getting CODIS loci only...");
-    var getCodisLociResponse = await lociClient.GetCodisLociAsyncAsync(new EmptyRequest());
-    Console.WriteLine($"✅ Found {getCodisLociResponse.Loci.Count} CODIS loci");
-
-    // Test 3: Create Locus
-    Console.WriteLine("\n3. Creating new locus...");
-    var newLocus = new LociPhienNT
-    {
-        PhienNtid = 0, // Will be auto-generated
-        Name = $"TEST_LOCUS_PhienNT_{DateTime.Now:HHmmss}",
-        IsCodis = true,
-        Description = "Test locus created via gRPC PhienNT console client",
-        MutationRate = 0.0001,
-        CreatedAt = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ss.fffZ")
-    };
-
-    var createLocusResponse = await lociClient.CreateAsyncAsync(newLocus);
-    Console.WriteLine($"✅ Created locus with result: {createLocusResponse.Result}");
-    createdLocusId = createLocusResponse.Result;
-
-    // Test 4: GetByIdAsync for Locus
-    if (createdLocusId > 0)
-    {
-        Console.WriteLine("\n4. Getting locus by ID...");
-        var getLocusByIdResponse = await lociClient.GetByIdAsyncAsync(new GetByIdRequest { Id = createdLocusId });
-        Console.WriteLine($"✅ Retrieved locus: ID={getLocusByIdResponse.PhienNtid}, Name={getLocusByIdResponse.Name}");
-    }
-    else if (getAllLociResponse.Loci.Count > 0)
-    {
-        Console.WriteLine("\n4. Getting locus by ID (using existing)...");
-        var firstLocusId = getAllLociResponse.Loci[0].PhienNtid;
-        var getLocusByIdResponse = await lociClient.GetByIdAsyncAsync(new GetByIdRequest { Id = firstLocusId });
-        Console.WriteLine($"✅ Retrieved locus: ID={getLocusByIdResponse.PhienNtid}, Name={getLocusByIdResponse.Name}");
-    }
-
-    // Test 5: GetByNameAsync
-    if (createdLocusId > 0)
-    {
-        Console.WriteLine("\n5. Getting locus by name...");
-        var getLocusByNameResponse = await lociClient.GetByNameAsyncAsync(new GetByNameRequest { Name = newLocus.Name });
-        Console.WriteLine($"✅ Retrieved locus by name: ID={getLocusByNameResponse.PhienNtid}, Name={getLocusByNameResponse.Name}");
-    }
-
-    // Test 6: Search Loci
-    Console.WriteLine("\n6. Searching loci...");
-    var searchLociRequest = new SearchLociRequest
-    {
-        Name = "D",
-        IsCodis = true,
-        Page = 1,
-        PageSize = 5
-    };
-
-    var searchLociResponse = await lociClient.SearchAsyncAsync(searchLociRequest);
-    Console.WriteLine($"✅ Search found {searchLociResponse.TotalItems} loci matching criteria");
-    Console.WriteLine($"   Total Pages: {searchLociResponse.TotalPages}, Current Page: {searchLociResponse.CurrentPage}");
-
-    // Test 7: Update Locus
-    if (createdLocusId > 0)
-    {
-        Console.WriteLine("\n7. Updating locus...");
-        var updateLocus = new LociPhienNT
+        else
         {
-            PhienNtid = createdLocusId,
-            Name = $"UPDATED_LOCUS_PhienNT_{DateTime.Now:HHmmss}",
-            IsCodis = false, // Changed to non-CODIS
-            Description = "Updated test locus via gRPC PhienNT console client",
-            MutationRate = 0.0002, // Increased mutation rate
-            CreatedAt = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ss.fffZ")
-        };
-
-        var updateLocusResponse = await lociClient.UpdateAsyncAsync(updateLocus);
-        Console.WriteLine($"✅ Updated locus with result: {updateLocusResponse.Result}");
-    }
-
-    // ============================================
-    // PAGINATION TESTING
-    // ============================================
-    Console.WriteLine("\n=== TESTING PAGINATION ===");
-
-    // Test pagination with DNA Tests
-    Console.WriteLine("\n1. Testing DNA Tests pagination...");
-    var paginationTestRequest = new SearchDnaTestsRequest
-    {
-        TestType = "",
-        IsCompleted = false,
-        Page = 1,
-        PageSize = 2
-    };
-
-    var paginationTestResponse = await dnaTestsClient.SearchAsyncAsync(paginationTestRequest);
-    Console.WriteLine($"✅ Page 1: {paginationTestResponse.Items.Count} items out of {paginationTestResponse.TotalItems} total");
-
-    if (paginationTestResponse.TotalPages > 1)
-    {
-        paginationTestRequest.Page = 2;
-        var page2Response = await dnaTestsClient.SearchAsyncAsync(paginationTestRequest);
-        Console.WriteLine($"✅ Page 2: {page2Response.Items.Count} items");
-    }
-
-    // Test pagination with Loci
-    Console.WriteLine("\n2. Testing Loci pagination...");
-    var lociPaginationRequest = new SearchLociRequest
-    {
-        Name = "",
-        IsCodis = true,
-        Page = 1,
-        PageSize = 3
-    };
-
-    var lociPaginationResponse = await lociClient.SearchAsyncAsync(lociPaginationRequest);
-    Console.WriteLine($"✅ Page 1: {lociPaginationResponse.Items.Count} items out of {lociPaginationResponse.TotalItems} total");
-
-    // ============================================
-    // CLEANUP (OPTIONAL DELETE TESTS)
-    // ============================================
-    Console.WriteLine("\n=== CLEANUP TESTING (DELETE) ===");
-
-    Console.WriteLine("\nDo you want to test DELETE operations? (y/n)");
-    var deleteChoice = Console.ReadLine()?.ToLower();
-
-    if (deleteChoice == "y" || deleteChoice == "yes")
-    {
-        // Test Delete DNA Test
-        if (createdTestId > 0)
-        {
-            Console.WriteLine($"\nDeleting created DNA test (ID: {createdTestId})...");
-            var deleteTestResponse = await dnaTestsClient.DeleteAsyncAsync(new DeleteRequest { Id = createdTestId });
-            Console.WriteLine($"✅ Deleted DNA test with result: {deleteTestResponse.Result}");
-        }
-
-        // Test Delete Locus
-        if (createdLocusId > 0)
-        {
-            Console.WriteLine($"\nDeleting created locus (ID: {createdLocusId})...");
-            var deleteLocusResponse = await lociClient.DeleteAsyncAsync(new DeleteRequest { Id = createdLocusId });
-            Console.WriteLine($"✅ Deleted locus with result: {deleteLocusResponse.Result}");
+            Console.WriteLine("Delete cancelled.");
         }
     }
     else
     {
-        Console.WriteLine("Skipping delete operations. Created records remain in database.");
-        if (createdTestId > 0) Console.WriteLine($"  - DNA Test ID: {createdTestId}");
-        if (createdLocusId > 0) Console.WriteLine($"  - Locus ID: {createdLocusId}");
+        Console.WriteLine("❌ Invalid ID format.");
     }
-
-    // ============================================
-    // FINAL STATUS
-    // ============================================
-    Console.WriteLine("\n==============================================");
-    Console.WriteLine("✅ ALL TESTS COMPLETED SUCCESSFULLY!");
-    Console.WriteLine("==============================================");
-    Console.WriteLine("\nTested Services:");
-    Console.WriteLine("  ✅ Greeter Service - Basic connectivity");
-    Console.WriteLine("  ✅ DNA Tests Service - Full CRUD + Search");
-    Console.WriteLine("  ✅ Loci Service - Full CRUD + Search + CODIS filtering");
-    Console.WriteLine("  ✅ Pagination - Both services");
-    Console.WriteLine("  ✅ Error handling - Exception management");
-
-    Console.WriteLine($"\nCreated Records:");
-    if (createdTestId > 0) Console.WriteLine($"  - DNA Test ID: {createdTestId}");
-    if (createdLocusId > 0) Console.WriteLine($"  - Locus ID: {createdLocusId}");
 }
-catch (Exception ex)
+
+// Loci Methods
+async Task ViewAllLoci()
 {
-    Console.WriteLine("\n❌ ERROR OCCURRED:");
-    Console.WriteLine($"Message: {ex.Message}");
-    if (ex.InnerException != null)
+    Console.WriteLine("\n--- All Loci ---");
+    var response = await lociClient.GetAllAsyncAsync(new EmptyRequest());
+
+    if (response.Loci.Count == 0)
     {
-        Console.WriteLine($"Inner Exception: {ex.InnerException.Message}");
+        Console.WriteLine("No loci found.");
+        return;
     }
-    Console.WriteLine($"Stack Trace: {ex.StackTrace}");
+
+    foreach (var locus in response.Loci)
+    {
+        Console.WriteLine($"ID: {locus.PhienNtid} | Name: {locus.Name} | CODIS: {locus.IsCodis}");
+        Console.WriteLine($"  Description: {locus.Description}");
+        Console.WriteLine($"  Mutation Rate: {locus.MutationRate}");
+        Console.WriteLine();
+    }
 }
 
-Console.WriteLine("\n==============================================");
-Console.WriteLine("Press any key to exit...");
-Console.ReadKey();
+async Task ViewCodisLoci()
+{
+    Console.WriteLine("\n--- CODIS Loci Only ---");
+    var response = await lociClient.GetCodisLociAsyncAsync(new EmptyRequest());
+
+    foreach (var locus in response.Loci)
+    {
+        Console.WriteLine($"ID: {locus.PhienNtid} | Name: {locus.Name}");
+        Console.WriteLine($"  Description: {locus.Description}");
+        Console.WriteLine($"  Mutation Rate: {locus.MutationRate}");
+        Console.WriteLine();
+    }
+}
+
+async Task GetLocusById()
+{
+    Console.Write("Enter Locus ID: ");
+    if (int.TryParse(Console.ReadLine(), out int id))
+    {
+        var response = await lociClient.GetByIdAsyncAsync(new GetByIdRequest { Id = id });
+        Console.WriteLine($"\n✅ Locus Found:");
+        Console.WriteLine($"ID: {response.PhienNtid}");
+        Console.WriteLine($"Name: {response.Name}");
+        Console.WriteLine($"CODIS: {response.IsCodis}");
+        Console.WriteLine($"Description: {response.Description}");
+        Console.WriteLine($"Mutation Rate: {response.MutationRate}");
+    }
+    else
+    {
+        Console.WriteLine("❌ Invalid ID format.");
+    }
+}
+
+async Task GetLocusByName()
+{
+    Console.Write("Enter Locus Name: ");
+    var name = Console.ReadLine();
+
+    if (!string.IsNullOrEmpty(name))
+    {
+        var response = await lociClient.GetByNameAsyncAsync(new GetByNameRequest { Name = name });
+        Console.WriteLine($"\n✅ Locus Found:");
+        Console.WriteLine($"ID: {response.PhienNtid}");
+        Console.WriteLine($"Name: {response.Name}");
+        Console.WriteLine($"CODIS: {response.IsCodis}");
+        Console.WriteLine($"Description: {response.Description}");
+        Console.WriteLine($"Mutation Rate: {response.MutationRate}");
+    }
+    else
+    {
+        Console.WriteLine("❌ Name cannot be empty.");
+    }
+}
+
+async Task SearchLoci()
+{
+    Console.Write("Enter Locus Name (or press Enter to skip): ");
+    var name = Console.ReadLine();
+
+    Console.Write("Show only CODIS loci? (y/n): ");
+    var codisInput = Console.ReadLine();
+    bool isCodis = codisInput?.ToLower() == "y";
+
+    Console.Write("Page number (default 1): ");
+    int page = int.TryParse(Console.ReadLine(), out page) ? page : 1;
+
+    Console.Write("Page size (default 10): ");
+    int pageSize = int.TryParse(Console.ReadLine(), out pageSize) ? pageSize : 10;
+
+    var request = new SearchLociRequest
+    {
+        Name = name ?? "",
+        IsCodis = isCodis,
+        Page = page,
+        PageSize = pageSize
+    };
+
+    var response = await lociClient.SearchAsyncAsync(request);
+
+    Console.WriteLine($"\n--- Search Results ---");
+    Console.WriteLine($"Total: {response.TotalItems} | Pages: {response.TotalPages} | Current: {response.CurrentPage}");
+
+    foreach (var locus in response.Items)
+    {
+        Console.WriteLine($"ID: {locus.PhienNtid} | Name: {locus.Name} | CODIS: {locus.IsCodis}");
+    }
+}
+
+async Task CreateLocus()
+{
+    Console.WriteLine("\n--- Create New Locus ---");
+    Console.Write("Locus Name: ");
+    var name = Console.ReadLine();
+
+    Console.Write("Description: ");
+    var description = Console.ReadLine();
+
+    Console.Write("Is CODIS? (y/n): ");
+    bool isCodis = Console.ReadLine()?.ToLower() == "y";
+
+    Console.Write("Mutation Rate (e.g., 0.001): ");
+    double.TryParse(Console.ReadLine(), out double mutationRate);
+
+    var locus = new LociPhienNT
+    {
+        Name = name,
+        Description = description,
+        IsCodis = isCodis,
+        MutationRate = mutationRate,
+        CreatedAt = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ss.fffZ")
+    };
+
+    var response = await lociClient.CreateAsyncAsync(locus);
+    Console.WriteLine($"✅ Locus created with ID: {response.Result}");
+}
+
+async Task UpdateLocus()
+{
+    Console.Write("Enter Locus ID to update: ");
+    if (!int.TryParse(Console.ReadLine(), out int id))
+    {
+        Console.WriteLine("❌ Invalid ID format.");
+        return;
+    }
+
+    // First get the existing locus
+    var existing = await lociClient.GetByIdAsyncAsync(new GetByIdRequest { Id = id });
+
+    Console.WriteLine("\n--- Update Locus ---");
+    Console.WriteLine("Press Enter to keep current value, or type new value:");
+
+    Console.Write($"Name [{existing.Name}]: ");
+    var name = Console.ReadLine();
+    if (string.IsNullOrEmpty(name)) name = existing.Name;
+
+    Console.Write($"Description [{existing.Description}]: ");
+    var description = Console.ReadLine();
+    if (string.IsNullOrEmpty(description)) description = existing.Description;
+
+    Console.Write($"CODIS [{existing.IsCodis}] (y/n): ");
+    var codisInput = Console.ReadLine();
+    bool isCodis = string.IsNullOrEmpty(codisInput) ? existing.IsCodis : codisInput.ToLower() == "y";
+
+    Console.Write($"Mutation Rate [{existing.MutationRate}]: ");
+    var rateInput = Console.ReadLine();
+    double mutationRate = string.IsNullOrEmpty(rateInput) ? existing.MutationRate : double.Parse(rateInput);
+
+    var locus = new LociPhienNT
+    {
+        PhienNtid = id,
+        Name = name,
+        Description = description,
+        IsCodis = isCodis,
+        MutationRate = mutationRate,
+        CreatedAt = existing.CreatedAt
+    };
+
+    var response = await lociClient.UpdateAsyncAsync(locus);
+    Console.WriteLine($"✅ Locus updated. Result: {response.Result}");
+}
+
+async Task DeleteLocus()
+{
+    Console.Write("Enter Locus ID to delete: ");
+    if (int.TryParse(Console.ReadLine(), out int id))
+    {
+        Console.Write($"Are you sure you want to delete locus {id}? (y/n): ");
+        if (Console.ReadLine()?.ToLower() == "y")
+        {
+            var response = await lociClient.DeleteAsyncAsync(new DeleteRequest { Id = id });
+            Console.WriteLine($"✅ Locus deleted. Result: {response.Result}");
+        }
+        else
+        {
+            Console.WriteLine("Delete cancelled.");
+        }
+    }
+    else
+    {
+        Console.WriteLine("❌ Invalid ID format.");
+    }
+}

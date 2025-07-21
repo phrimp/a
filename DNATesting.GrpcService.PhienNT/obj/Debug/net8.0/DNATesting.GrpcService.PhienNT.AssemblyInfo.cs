@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DNATesting.GrpcService.PhienNT")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+91054ef5367cc49b3d85e723b3b96d4a0586b444")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+901d4cadfed771181f6027128af1c35f2ca1d94d")]
 [assembly: System.Reflection.AssemblyProductAttribute("DNATesting.GrpcService.PhienNT")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DNATesting.GrpcService.PhienNT")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

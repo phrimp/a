@@ -113,12 +113,6 @@ E:\Work\SU25_PRN232_SE1730_ASM3_SE182962_PhienNT\DNATesting.GrpcService.PhienNT\
 E:\Work\SU25_PRN232_SE1730_ASM3_SE182962_PhienNT\DNATesting.GrpcService.PhienNT\obj\Debug\net8.0\staticwebassets.build.json
 E:\Work\SU25_PRN232_SE1730_ASM3_SE182962_PhienNT\DNATesting.GrpcService.PhienNT\obj\Debug\net8.0\staticwebassets.development.json
 E:\Work\SU25_PRN232_SE1730_ASM3_SE182962_PhienNT\DNATesting.GrpcService.PhienNT\obj\Debug\net8.0\staticwebassets.build.endpoints.json
-E:\Work\SU25_PRN232_SE1730_ASM3_SE182962_PhienNT\DNATesting.GrpcService.PhienNT\obj\Debug\net8.0\staticwebassets\msbuild.DNATesting.GrpcService.PhienNT.Microsoft.AspNetCore.StaticWebAssets.props
-E:\Work\SU25_PRN232_SE1730_ASM3_SE182962_PhienNT\DNATesting.GrpcService.PhienNT\obj\Debug\net8.0\staticwebassets\msbuild.DNATesting.GrpcService.PhienNT.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
-E:\Work\SU25_PRN232_SE1730_ASM3_SE182962_PhienNT\DNATesting.GrpcService.PhienNT\obj\Debug\net8.0\staticwebassets\msbuild.build.DNATesting.GrpcService.PhienNT.props
-E:\Work\SU25_PRN232_SE1730_ASM3_SE182962_PhienNT\DNATesting.GrpcService.PhienNT\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.DNATesting.GrpcService.PhienNT.props
-E:\Work\SU25_PRN232_SE1730_ASM3_SE182962_PhienNT\DNATesting.GrpcService.PhienNT\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.DNATesting.GrpcService.PhienNT.props
-E:\Work\SU25_PRN232_SE1730_ASM3_SE182962_PhienNT\DNATesting.GrpcService.PhienNT\obj\Debug\net8.0\staticwebassets.pack.json
 E:\Work\SU25_PRN232_SE1730_ASM3_SE182962_PhienNT\DNATesting.GrpcService.PhienNT\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 E:\Work\SU25_PRN232_SE1730_ASM3_SE182962_PhienNT\DNATesting.GrpcService.PhienNT\obj\Debug\net8.0\DNATesti.EA61B277.Up2Date
 E:\Work\SU25_PRN232_SE1730_ASM3_SE182962_PhienNT\DNATesting.GrpcService.PhienNT\obj\Debug\net8.0\DNATesting.GrpcService.PhienNT.dll
@@ -126,3 +120,8 @@ E:\Work\SU25_PRN232_SE1730_ASM3_SE182962_PhienNT\DNATesting.GrpcService.PhienNT\
 E:\Work\SU25_PRN232_SE1730_ASM3_SE182962_PhienNT\DNATesting.GrpcService.PhienNT\obj\Debug\net8.0\DNATesting.GrpcService.PhienNT.pdb
 E:\Work\SU25_PRN232_SE1730_ASM3_SE182962_PhienNT\DNATesting.GrpcService.PhienNT\obj\Debug\net8.0\DNATesting.GrpcService.PhienNT.genruntimeconfig.cache
 E:\Work\SU25_PRN232_SE1730_ASM3_SE182962_PhienNT\DNATesting.GrpcService.PhienNT\obj\Debug\net8.0\ref\DNATesting.GrpcService.PhienNT.dll
+E:\Work\SU25_PRN232_SE1730_ASM3_SE182962_PhienNT\DNATesting.GrpcService.PhienNT\obj\Debug\net8.0\rpswa.dswa.cache.json
+E:\Work\SU25_PRN232_SE1730_ASM3_SE182962_PhienNT\DNATesting.GrpcService.PhienNT\obj\Debug\net8.0\rjimswa.dswa.cache.json
+E:\Work\SU25_PRN232_SE1730_ASM3_SE182962_PhienNT\DNATesting.GrpcService.PhienNT\obj\Debug\net8.0\rjsmrazor.dswa.cache.json
+E:\Work\SU25_PRN232_SE1730_ASM3_SE182962_PhienNT\DNATesting.GrpcService.PhienNT\obj\Debug\net8.0\rjsmcshtml.dswa.cache.json
+E:\Work\SU25_PRN232_SE1730_ASM3_SE182962_PhienNT\DNATesting.GrpcService.PhienNT\obj\Debug\net8.0\staticwebassets.build.json.cache
